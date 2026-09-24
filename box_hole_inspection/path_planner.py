@@ -1,17 +1,19 @@
 """path_planner: 每孔测量任务 -> 机器人B运动位姿（MotionPlan）。
 
-第一阶段（孔轴竖直、轴向针侧触）位姿几何：
+第一阶段（孔轴竖直、测针从孔内向外触壁）位姿几何（环规流程同此）：
 
     safe      : 孔中心正上方 safe_z = z_top + safe_z_margin
-    insert    : 孔中心正上方、测球中心降到截面深度 z_top + z_offset
-    search θ  : 截面深度处、距孔中心 (R_hole − r_ball + search_overshoot)
-                的搜索起点——随后由 probe_measurement 以接触速度执行
-                有保护的回墙搜索（触发即停），规划器只负责到达搜索起点
+    insert    : 测球中心降到截面深度 z_top + z_offset（孔心处）
+    search θ  : 位姿=孔心（同截面深度），search_target = 孔心 +
+                e(θ)·(R_hole − r_ball + search_overshoot)。由
+                probe_measurement 从位姿朝 search_target 做有保护的
+                步进搜索（触发即停），规划器不负责搜索段本身
     center    : 回到截面孔心（换角度/换截面的过渡点）
 
-search_overshoot 必须覆盖视觉粗定位误差（实测约 0.3~2mm，默认 3mm）。
-每个位姿都经 robot.check_pose 检查（可达/限位/奇异），全部通过才
-整体放行；碰撞检查在 sim_world 障碍模块接入后补充（当前恒为 True）。
+预期触发点在 R_true − r_ball；overshoot 覆盖粗定位误差（实测约
+0.3~2mm，默认 3mm）与孔径公差。每个位姿都经 robot.check_pose 检查
+（可达/限位/奇异），全部通过才整体放行；碰撞检查在障碍模块接入后
+补充（当前恒为 True）。
 
 仿真简化说明：十字分支（大孔）在仿真里沿用同一"点测头 + 搜索半径"模型，
 真实分支 offset 由真机适配器/标定注册表负责——仿真只验证规划管线。
@@ -59,15 +61,16 @@ class PathPlanner:
         return schemas.Pose(x=cx, y=cy, z=z_top + self.safe_z_margin,
                             rx=rx, ry=ry, rz=rz)
 
-    def search_pose(self, cx: float, cy: float, z: float, angle_deg: float,
-                    radius_mm: float, overshoot_mm: float) -> schemas.Pose:
-        """搜索起点：孔心 + e(θ)·(R_hole − r_ball + overshoot)，同截面深度。"""
+    def search_target(self, cx: float, cy: float, z: float, angle_deg: float,
+                      radius_mm: float, overshoot_mm: float) -> list:
+        """搜索终点：孔心 + e(θ)·(R_hole − r_ball + overshoot)。
+
+        有保护搜索从孔心出发向外触壁（环规流程同此）：预期触发点在
+        R_true − r_ball，overshoot 覆盖粗定位误差与孔径公差。
+        """
         a = math.radians(angle_deg)
         d = radius_mm - self.ball_r + overshoot_mm
-        rx, ry, rz = self._orientation()
-        return schemas.Pose(x=cx + d * math.cos(a),
-                            y=cy + d * math.sin(a),
-                            z=z, rx=rx, ry=ry, rz=rz)
+        return [cx + d * math.cos(a), cy + d * math.sin(a), z]
 
     # -- planning -----------------------------------------------------------
 
@@ -104,10 +107,23 @@ class PathPlanner:
                              rx=180.0, ry=0.0, rz=0.0),
                 self.in_hole_speed)
             for ai, ang in enumerate(sec.angles_deg):
-                add("measure", f"{task.hole_id}_s{si}_a{ang:g}",
-                    self.search_pose(cx, cy, z_sec, ang, R,
-                                     m.search_overshoot_mm),
-                    self.in_hole_speed)
+                wp = schemas.Waypoint(
+                    hole_id=task.hole_id, stage="measure",
+                    name=f"{task.hole_id}_s{si}_a{ang:g}",
+                    pose_bb=schemas.Pose(x=cx, y=cy, z=z_sec,
+                                         rx=180.0, ry=0.0, rz=0.0),
+                    search_target_bb=self.search_target(
+                        cx, cy, z_sec, ang, R, m.search_overshoot_mm),
+                    speed_ratio=self.in_hole_speed)
+                c = self.robot.check_pose(wp.pose_bb)
+                if not c.reachable:
+                    checks.reachable = False
+                    checks.messages.append(f"{wp.name}: IK failed")
+                if not c.singularity_ok:
+                    checks.singularity_ok = False
+                    checks.messages.append(f"{wp.name}: near-singular")
+                checks.collision_ok = checks.collision_ok and c.collision_ok
+                waypoints.append(wp)
             add("measure", f"{task.hole_id}_s{si}_center",
                 schemas.Pose(x=cx, y=cy, z=z_sec,
                              rx=180.0, ry=0.0, rz=0.0),

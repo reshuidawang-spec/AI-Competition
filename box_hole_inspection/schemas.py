@@ -220,11 +220,17 @@ class TaskList:
 
 @dataclass
 class Waypoint:
-    """One robot motion waypoint (robot-B base frame)."""
+    """One robot motion waypoint (robot-B base frame).
+
+    search_target_bb 非空时，该位姿是"有保护搜索"的起点：probe_measurement
+    从 pose_bb 以接触速度朝 search_target_bb 步进，触发即停（不回墙不回退
+    到目标），未触发则记录 MISS 并回退到截面中心。
+    """
     hole_id: str = ""
     stage: str = ""                            # approach | measure | safe | leave
     name: str = ""
     pose_bb: Pose = field(default_factory=Pose)
+    search_target_bb: Optional[List[float]] = None
     joint_deg: Optional[List[float]] = None    # IK 解（若可解）
     speed_ratio: float = 0.3
     blend_mm: float = 10.0

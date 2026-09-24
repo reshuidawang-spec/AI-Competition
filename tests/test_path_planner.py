@@ -58,16 +58,26 @@ class TestSingleHolePlan(unittest.TestCase):
         self.assertAlmostEqual(safe.z, CZ + 40.0)      # safe_z_margin
         self.assertEqual(safe.rx, 180.0)               # 测针竖直向下
 
-    def test_search_pose_geometry(self):
-        # 截面1 在 z=110-6=104；角度 0 的搜索起点在 +X 方向
-        # 距离 = R(10) − r_ball(1) + overshoot(3) = 12mm
+    def test_search_geometry(self):
+        """搜索位姿在孔心；search_target 在名义触点外 overshoot 处。
+
+        截面1 深度 z=110-6=104；搜索终点 = 孔心 + e(θ)·(R−r+3)=12mm。
+        """
         w = next(w for w in self.wps if w.name == "H01_s0_a0")
-        self.assertAlmostEqual(w.pose_bb.x, CX + 12.0, places=6)
-        self.assertAlmostEqual(w.pose_bb.y, CY, places=6)
+        self.assertAlmostEqual(w.pose_bb.x, CX, places=6)      # 起点=孔心
         self.assertAlmostEqual(w.pose_bb.z, 104.0, places=6)
+        tx, ty, tz = w.search_target_bb
+        self.assertAlmostEqual(tx, CX + 12.0, places=6)
+        self.assertAlmostEqual(ty, CY, places=6)
+        self.assertAlmostEqual(tz, 104.0, places=6)
         w90 = next(w for w in self.wps if w.name == "H01_s0_a90")
-        self.assertAlmostEqual(w90.pose_bb.x, CX, places=6)
-        self.assertAlmostEqual(w90.pose_bb.y, CY + 12.0, places=6)
+        tx90, ty90, _ = w90.search_target_bb
+        self.assertAlmostEqual(tx90, CX, places=6)
+        self.assertAlmostEqual(ty90, CY + 12.0, places=6)
+
+    def test_normal_waypoints_have_no_search_target(self):
+        insert = next(w for w in self.wps if w.name == "H01_s0_insert")
+        self.assertIsNone(insert.search_target_bb)
 
     def test_speed_ratios(self):
         self.assertAlmostEqual(self.wps[0].speed_ratio, 0.3)      # 转移
@@ -116,7 +126,7 @@ class TestFullPlan(unittest.TestCase):
 
 class TestUnreachableHole(unittest.TestCase):
     def test_far_hole_flagged(self):
-        task = make_task(center_bb=[900.0, 0.0, 110.0])
+        task = make_task(center_bb=[950.0, 0.0, 110.0])
         planner = PathPlanner(SimRobot(), safety=SAFETY)
         wps, checks = planner.plan_hole(task)
         self.assertFalse(checks.reachable)
