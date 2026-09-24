@@ -211,6 +211,7 @@ class TaskList:
     part_id: str = ""
     timestamp_ms: float = 0.0
     tasks: List[HoleTask] = field(default_factory=list)
+    skipped: List[dict] = field(default_factory=list)  # 无法生成任务的孔及原因
 
 
 # ---------------------------------------------------------------------------

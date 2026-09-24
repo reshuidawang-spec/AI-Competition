@@ -135,3 +135,22 @@ def box_from_part_yaml(path, fallback_diameter_mm: float = DEFAULT_HOLE_DIAMETER
     dims = spec.get("box_dims_mm") or DEFAULT_BOX_DIMS_MM
     return SimBox(part_id=spec.get("part_id", "BOX_001"),
                   dims_mm=tuple(float(d) for d in dims), holes=holes)
+
+
+def part_spec_from_box(box: SimBox, tolerances: Optional[dict] = None) -> dict:
+    """Sim box -> part-spec dict（供 task_generator 在仿真闭环中使用）。
+
+    与 config/part_box001.yaml 同构：真实值填进 yaml 后，真机流程用
+    yaml；仿真闭环用本函数把仿真箱体转成同结构 spec。
+    """
+    tolerances = tolerances or {"tol_diameter_mm": 0.05,
+                                "tol_position_mm": 0.10,
+                                "tol_perp_deg": 0.10}
+    return {
+        "part_id": box.part_id,
+        "box_dims_mm": list(box.dims_mm),
+        "holes": [
+            {"id": h.id, "center_o_mm": [h.center_o[0], h.center_o[1]],
+             "diameter_mm": h.diameter_mm, **tolerances}
+            for h in box.holes],
+    }
