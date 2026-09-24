@@ -11,8 +11,8 @@
 - [x] 仓库骨架 + schemas + transforms + 坐标变换链 + 相机接口（2026-09-24，41 tests OK）
 - [x] sim_robot：真实 CR5 URDF 运动学 FK + 数值 DLS IK + 关节限位 + 可达/奇异检查（2026-09-24，56 tests OK；q=0 法兰位姿回归锚点已固化）
 - [ ] 机器人A真机只读检查：192.168.1.7 直连/双网卡、第二驱动实例启动、GetPose/DI 只读验收
-- [ ] sim_world：工作台 + 箱体（顶面孔，孔径参数化待定）+ 任意 (x,y,rz)
-- [ ] sim_camera：渲染顶面透视图像（圆→椭圆 + 噪声）
+- [x] sim_world：工作台 + 箱体（顶面孔，孔径参数化待定，从 part_box001.yaml 读取、null 自动回退默认值）+ 任意 (x,y,rz)（2026-09-24，78 tests OK）
+- [x] sim_camera：透视渲染（圆→椭圆 + 噪声 + 亮度抖动 + 实例掩膜）；渲染↔坐标链闭环测试锁定（GT 像素逆变换回世界真值 <0.1mm）；渲染器兼作 YOLO 合成训练数据生成器
 - [ ] vision_ai 占位版（椭圆/霍夫检测，接口与 YOLO 版一致）
 - [ ] task_generator：按孔径分档生成测量策略（孔径 <65mm 轴向针侧触 / ≥65mm 十字水平支）
 - [ ] path_planner + sequence_planner：approach/safe/measure 位姿 + 最近邻顺序 + 过冲间隙
