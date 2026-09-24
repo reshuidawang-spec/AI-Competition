@@ -44,6 +44,10 @@ class RobotBase(ABC):
         """Current flange pose in the robot's own base frame (mm, deg)."""
 
     @abstractmethod
+    def get_tcp_pose(self) -> schemas.Pose:
+        """Current tool-centre-point pose (tool offset T_EB_P applied)."""
+
+    @abstractmethod
     def move_j(self, joint_deg: list, speed_ratio: float = 0.3) -> None:
         """Joint-space move to target joint angles."""
 

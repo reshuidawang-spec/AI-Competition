@@ -181,11 +181,16 @@ class SimRobot(RobotBase):
     def __init__(self, name: str = "sim_cr5",
                  base_pose_w: Optional[np.ndarray] = None,
                  start_joints_deg: Optional[list] = None,
-                 max_joint_vel_deg_s: float = DEFAULT_MAX_JOINT_VEL_DEG_S):
+                 max_joint_vel_deg_s: float = DEFAULT_MAX_JOINT_VEL_DEG_S,
+                 tool_t_eb_p: Optional[np.ndarray] = None):
         self.name = name
         self.kin = _Kinematics(CR5_JOINTS)
         self.base_pose_w = (np.eye(4) if base_pose_w is None
                             else np.asarray(base_pose_w, dtype=float))
+        # 工具 TCP：测头球心在法兰下的位姿（真实值来自标定注册表；
+        # 仿真默认恒等，即 TCP=法兰）
+        self.T_EB_P = (np.eye(4) if tool_t_eb_p is None
+                       else np.asarray(tool_t_eb_p, dtype=float))
         q0 = ([0.0] * 6 if start_joints_deg is None
               else list(start_joints_deg))
         if len(q0) != 6:
@@ -208,15 +213,25 @@ class SimRobot(RobotBase):
     def flange_pose(self) -> schemas.Pose:
         return schemas.Pose(**tf.T_to_pose(self.fk(self._q)))
 
+    def tcp_pose(self) -> schemas.Pose:
+        """TCP（测头球心）在机器人自身基座系的位姿。"""
+        T = tf.compose(self.fk(self._q), self.T_EB_P)
+        return schemas.Pose(**tf.T_to_pose(T))
+
     def flange_pose_w(self) -> schemas.Pose:
         """Flange pose in the world frame (W ≡ robot-B base)."""
         T_w = tf.compose(self.base_pose_w, self.fk(self._q))
         return schemas.Pose(**tf.T_to_pose(T_w))
 
+    def _tcp_to_flange(self, pose: schemas.Pose) -> np.ndarray:
+        """TCP 目标位姿 -> 法兰目标变换（IK 输入）。"""
+        T_tcp = tf.pose_to_T({"x": pose.x, "y": pose.y, "z": pose.z,
+                              "rx": pose.rx, "ry": pose.ry, "rz": pose.rz})
+        return tf.compose(T_tcp, tf.invert_T(self.T_EB_P))
+
     def check_pose(self, pose: schemas.Pose) -> schemas.PlanChecks:
-        """Full feasibility check of a pose (no motion)."""
-        T = tf.pose_to_T({"x": pose.x, "y": pose.y, "z": pose.z,
-                          "rx": pose.rx, "ry": pose.ry, "rz": pose.rz})
+        """Full feasibility check of a pose (no motion). pose 为 TCP 位姿。"""
+        T = self._tcp_to_flange(pose)
         q, singular = self.kin.ik(T)
         checks = schemas.PlanChecks(
             reachable=q is not None,
@@ -240,6 +255,9 @@ class SimRobot(RobotBase):
     def get_flange_pose(self) -> schemas.Pose:
         return self.flange_pose()
 
+    def get_tcp_pose(self) -> schemas.Pose:
+        return self.tcp_pose()
+
     def _guard(self):
         if self._estop:
             raise RuntimeError(f"{self.name}: emergency stop active")
@@ -258,8 +276,7 @@ class SimRobot(RobotBase):
 
     def move_l(self, pose: schemas.Pose, speed_ratio: float = 0.3) -> None:
         self._guard()
-        T = tf.pose_to_T({"x": pose.x, "y": pose.y, "z": pose.z,
-                          "rx": pose.rx, "ry": pose.ry, "rz": pose.rz})
+        T = self._tcp_to_flange(pose)     # pose 为 TCP 目标位姿
         q, _ = self.kin.ik(T, seed_rad=np.radians(self._q))
         if q is None:
             raise RuntimeError(f"{self.name}: move_l IK failed for {pose}")

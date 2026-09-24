@@ -231,6 +231,7 @@ class Waypoint:
     name: str = ""
     pose_bb: Pose = field(default_factory=Pose)
     search_target_bb: Optional[List[float]] = None
+    section_idx: int = -1                      # 测量截面序号（非截面位姿为 -1）
     joint_deg: Optional[List[float]] = None    # IK 解（若可解）
     speed_ratio: float = 0.3
     blend_mm: float = 10.0

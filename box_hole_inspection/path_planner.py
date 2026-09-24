@@ -83,9 +83,11 @@ class PathPlanner:
         waypoints = []
         checks = schemas.PlanChecks()
 
-        def add(stage, name, pose, speed):
+        def add(stage, name, pose, speed, search_target=None, section=-1):
             wp = schemas.Waypoint(hole_id=task.hole_id, stage=stage,
                                   name=name, pose_bb=pose,
+                                  search_target_bb=search_target,
+                                  section_idx=section,
                                   speed_ratio=speed)
             c = self.robot.check_pose(pose)
             if not c.reachable:
@@ -105,29 +107,19 @@ class PathPlanner:
             add("measure", f"{task.hole_id}_s{si}_insert",
                 schemas.Pose(x=cx, y=cy, z=z_sec,
                              rx=180.0, ry=0.0, rz=0.0),
-                self.in_hole_speed)
-            for ai, ang in enumerate(sec.angles_deg):
-                wp = schemas.Waypoint(
-                    hole_id=task.hole_id, stage="measure",
-                    name=f"{task.hole_id}_s{si}_a{ang:g}",
-                    pose_bb=schemas.Pose(x=cx, y=cy, z=z_sec,
-                                         rx=180.0, ry=0.0, rz=0.0),
-                    search_target_bb=self.search_target(
+                self.in_hole_speed, section=si)
+            for ang in sec.angles_deg:
+                add("measure", f"{task.hole_id}_s{si}_a{ang:g}",
+                    schemas.Pose(x=cx, y=cy, z=z_sec,
+                                 rx=180.0, ry=0.0, rz=0.0),
+                    self.in_hole_speed,
+                    search_target=self.search_target(
                         cx, cy, z_sec, ang, R, m.search_overshoot_mm),
-                    speed_ratio=self.in_hole_speed)
-                c = self.robot.check_pose(wp.pose_bb)
-                if not c.reachable:
-                    checks.reachable = False
-                    checks.messages.append(f"{wp.name}: IK failed")
-                if not c.singularity_ok:
-                    checks.singularity_ok = False
-                    checks.messages.append(f"{wp.name}: near-singular")
-                checks.collision_ok = checks.collision_ok and c.collision_ok
-                waypoints.append(wp)
+                    section=si)
             add("measure", f"{task.hole_id}_s{si}_center",
                 schemas.Pose(x=cx, y=cy, z=z_sec,
                              rx=180.0, ry=0.0, rz=0.0),
-                self.in_hole_speed)
+                self.in_hole_speed, section=si)
 
         add("leave", f"{task.hole_id}_safe",
             self.safe_pose(cx, cy, z_top), self.transfer_speed)
