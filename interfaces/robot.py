@@ -64,6 +64,13 @@ class RobotBase(ABC):
         """IK feasibility check for a pose (no motion)."""
 
     @abstractmethod
+    def check_pose(self, pose: schemas.Pose) -> schemas.PlanChecks:
+        """Full feasibility check for a pose (no motion): reachability,
+        joint limits, singularity, collision. Used by path_planner to fill
+        MotionPlan.checks; sim returns collision_ok=True until the world
+        model is attached."""
+
+    @abstractmethod
     def estop(self) -> None:
         """Emergency stop."""
 
