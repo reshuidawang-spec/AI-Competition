@@ -1,0 +1,37 @@
+# 工件名义数据（CAD 已知值）。
+# 孔在箱体顶面（2026-09-23 确认）；真实孔径与孔距待实测后填入。
+# diameter_mm / center_o_mm 为 null 时，task_generator 拒绝生成该孔任务。
+
+part_id: BOX_001
+box_dims_mm: [165, 55, 110]        # 名义箱体尺寸，待实测确认
+
+# 测孔策略按孔径分档（task_generator 自动选择）：
+#   diameter >= 65 : 十字水平支（x_pos/x_neg/y_pos/y_neg 触内壁）——环规已验证流程
+#   diameter <  65 : z 轴向针侧触（测球侧面水平接触）——需 W3 新验证触发特性
+branch_threshold_diameter_mm: 65
+
+holes:
+  - id: H01
+    center_o_mm: [null, null]       # 箱体系 [x, y]，待 CAD/实测填入
+    diameter_mm: null               # 待定
+    tol_diameter_mm: 0.05
+    tol_position_mm: 0.10
+    tol_perp_deg: 0.10
+  - id: H02
+    center_o_mm: [null, null]
+    diameter_mm: null
+    tol_diameter_mm: 0.05
+    tol_position_mm: 0.10
+    tol_perp_deg: 0.10
+  - id: H03
+    center_o_mm: [null, null]
+    diameter_mm: null
+    tol_diameter_mm: 0.05
+    tol_position_mm: 0.10
+    tol_perp_deg: 0.10
+  - id: H04
+    center_o_mm: [null, null]
+    diameter_mm: null
+    tol_diameter_mm: 0.05
+    tol_position_mm: 0.10
+    tol_perp_deg: 0.10

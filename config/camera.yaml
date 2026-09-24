@@ -1,0 +1,19 @@
+# 相机配置。
+# 假定相机（2026-09-23 确认）：USB3 工业相机，UVC 兼容，OpenCV 可直接采集。
+# 若实际采购 GigE / 厂商 SDK 相机，只需新增同接口适配器
+# （interfaces/adapters/ 下），本文件加对应字段，调用方不变。
+# 内参来自 config/calibration.json 的标定结果，不来自驱动。
+
+model: "assumed_usb3_uvc_industrial"
+device_index: 0
+width: 1280
+height: 1024
+fps: 15
+exposure_auto: false
+exposure_ms: 10.0
+
+# SimImageFileCamera 专用（mode=sim / 图像回放时生效）
+sim:
+  image_dir: "data/images"
+  patterns: ["*.png", "*.jpg", "*.jpeg", "*.bmp"]
+  loop: true

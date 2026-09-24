@@ -1,0 +1,29 @@
+{
+  "_comment": "标定结果。当前为占位值：W1 仿真由 sim 生成自洽真值；真实值由 docs/calibration_plan.md 的三个标定流程测得后替换，并把 source 改为对应的标定记录文件。",
+  "source": "placeholder",
+
+  "T_EA_C": {"x": 0, "y": 0, "z": 0, "rx": 0, "ry": 0, "rz": 0},
+  "_comment_T_EA_C": "手眼标定：相机在机器人A法兰下的位姿（AX=XB，一次标定）",
+
+  "T_EB_P": {"x": 0, "y": 0, "z": 0, "rx": 0, "ry": 0, "rz": 0},
+  "_comment_T_EB_P": "工具标定：测头TCP在机器人B法兰下的位姿。真实值优先只读复用 cr5_rmp60_measurement/config/calibration_registry.json（该处为测头几何权威来源）",
+
+  "T_BA_BB": {"x": 0, "y": 0, "z": 0, "rx": 0, "ry": 0, "rz": 0},
+  "_comment_T_BA_BB": "双机基座标定：机器人A基座在机器人B基座（=世界系W）下的位姿，固定值",
+
+  "camera_intrinsics": {
+    "fx": 1000, "fy": 1000, "cx": 640, "cy": 512,
+    "width": 1280, "height": 1024,
+    "dist": [0, 0, 0, 0, 0]
+  },
+  "_comment_camera_intrinsics": "相机内参：棋盘格标定（张正友）测得。坐标链要求无畸变像素：真机适配器用 dist 做 undistort",
+
+  "table_plane_w": {"point": [0, 0, 150.0], "normal": [0, 0, 1]},
+  "_comment_table_plane_w": "箱体顶面平面在世界系W（=BB）中的方程。第一阶段：箱体放工作台、顶面水平，z_top=台面高+箱高，由测量臂竖直测针在台面采点标定",
+
+  "probe": {"ball_radius_mm": 1.0, "trigger_io": "DI1"},
+  "_comment_probe": "测针红宝石球半径 1.0mm（φ2，见 cr5_rmp60_measurement/config/cross_probe_geometry.yaml）；RMP60 触发接控制柜 DI1",
+
+  "robot_a_capture_pose": {"x": 0, "y": 0, "z": 0, "rx": 0, "ry": 0, "rz": 0},
+  "_comment_robot_a_capture_pose": "第一阶段机器人A固定拍摄位姿（在A基座系），作为 T_BA_EA 输入"
+}

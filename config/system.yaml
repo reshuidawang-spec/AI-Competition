@@ -1,0 +1,30 @@
+# 系统运行配置
+# mode=sim: 全部运动由仿真适配器执行（默认，比赛前开发主模式）
+# mode=real: 真机执行，必须同时满足三重门禁
+#   1) mode=real
+#   2) 当前孔 setup/face 已 approved（注册面门禁，沿用 cr5_rmp60_measurement 约定）
+#   3) 姿态模板 verified
+mode: sim
+
+safety:
+  stop_overtravel_reserve_mm: 2.0   # 软件停止链实测过冲 0.04~1.7mm，规划必须预留
+  probe_step_mm: 0.5                # 分段探测步长（真机已验证约定）
+  contact_speed_ratio: 0.05         # 探测速度系数
+  transfer_speed_ratio: 0.3         # 转移速度系数
+  safe_z_margin_mm: 40.0            # 安全高度 = 工作区最高点 + 该余量
+  estop_poll_hz: 50                 # 安全监控线程轮询频率
+  vision_arm_home_on_b_measuring: true  # 双机时间互斥：B 测量时 A 必须回 HOME
+
+robots:
+  robot_a:
+    ip: "192.168.1.7"
+    driver_node: "robot_node_name2"
+    role: vision
+  robot_b:
+    ip: "192.168.5.1"
+    driver_node: "dobot_bringup_ros2"
+    role: measurement
+
+workcell:
+  world_frame: "BB"                 # W ≡ 测量臂基座（2026-09-23 确认）
+  box_face_with_holes: top          # 孔在箱体顶面（2026-09-23 确认）
