@@ -9,6 +9,23 @@ cd ~/dobot_ws/src/box_hole_inspection
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
+## 0A. 一键仿真闭环（W1 验收入口）
+
+```bash
+python3 scripts/run_sim_closed_loop.py --experiment 1     # 位置A
+python3 scripts/run_sim_closed_loop.py --experiment 2     # 移动箱体，不重新示教
+python3 scripts/run_sim_closed_loop.py --box-x 520 --box-y -25 --box-rz -15
+```
+
+报告输出 `data/runs/YYYY-MM-DD/sim_closed_loop_*/report.json`。
+
+## 0B. 合成训练数据生成（YOLO 预训练）
+
+```bash
+python3 scripts/gen_synthetic_dataset.py --out data/synthetic_box --n-train 300 --n-val 60
+yolo segment train model=yolo11n-seg.pt data=data/synthetic_box/dataset.yaml epochs=100 imgsz=1280 batch=8
+```
+
 ## 1. 安全门禁约定（继承 cr5_rmp60_measurement）
 
 - 默认 `mode: sim`：任何脚本不加 `--execute` 不得产生真实机器人运动。

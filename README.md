@@ -32,14 +32,15 @@ cd ~/dobot_ws/src/box_hole_inspection
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-## 当前状态（2026-09-24）
+## 当前状态（2026-09-25：W1 仿真最小闭环完成）
 
-- [x] 仓库骨架 + 消息 schema（schemas.py，JSON 往返验证）
-- [x] 位姿/变换工具库（utils/transforms.py，sxyz RPY 约定）
-- [x] 坐标变换链（coordinate_transform.py：像素→相机→世界(W≡BB)→机器人B，含射线-平面求交）
-- [x] 相机抽象层 + 仿真回放适配器 + 假定真机适配器（UVC USB3）
-- [x] 机器人/测头抽象接口（真机适配器待 W3 实现，替换点已在 docstring 标注）
-- [ ] 后续按 ROADMAP.md 推进
+- [x] 全部模块：schemas / 坐标链 / 相机接口 / sim_robot(真实CR5 URDF) /
+      sim_world / sim_camera / vision_ai(几何+YOLO骨架) / 合成数据生成器 /
+      task_generator / path+sequence_planner / sim_probe / probe_measurement /
+      geometry_fitting / tolerance_evaluator / hole_assigner / 状态机 / 主控
+- [x] 一键闭环：`python3 scripts/run_sim_closed_loop.py --experiment 1|2`
+- [x] 146 unittest 全绿；实验1 粗定位 0.316mm / 实验2（移动箱体）0.314mm
+- [ ] W2：真实相机+标定、箱体照片标注+YOLO训练、视觉精度实验、A臂真机只读检查
 
 ## 重要约定
 
