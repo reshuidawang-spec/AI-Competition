@@ -50,6 +50,23 @@ yolo segment train model=yolo11n-seg.pt data=data/synthetic_box/dataset.yaml epo
 source ~/教程/CR5_真实机械臂连接配置包/env/cr5_env.sh
 ```
 
+## 3A. RViz/MoveIt 3D 仿真（2026-09-25 冒烟测试通过）
+
+注意：`cr5_rmp60_measurement` 不是 colcon 包，必须用 launch 文件路径启动：
+
+```bash
+# CR5 + RMP60 五向测针模型可视化
+ros2 launch /home/zhu/dobot_ws/src/cr5_rmp60_measurement/launch/view_cr5_rmp60_model.launch.py
+
+# MoveIt 交互演示（拖拽 + 规划，tip=rmp60_tip）
+ros2 launch /home/zhu/dobot_ws/src/cr5_rmp60_measurement/launch/cr5_rmp60_moveit_demo.launch.py
+
+# 不带测头的原始 CR5 稳定 demo
+ros2 launch my_cr5_control cr5_moveit_stable_demo.launch.py
+```
+
+用途：W3 真机预检（MoveIt /compute_ik + 碰撞检查）与演示可视化。
+
 ## 4. 相机
 
 假定 USB3 UVC 兼容工业相机（OpenCV 直采）；实际采购 GigE/厂商 SDK 相机时新增同接口适配器，算法层不变。内参来自 `config/calibration.json`（棋盘格标定），不来自驱动。
