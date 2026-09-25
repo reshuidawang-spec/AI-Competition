@@ -2,10 +2,11 @@
 
 The single view -> execution chain of the system::
 
-    p_BB = T_BB_BA · T_BA_EA(θ_A) · T_EA_C · λ·K⁻¹·[u, v, 1]ᵀ
+    p_BB = T_BA_BB · T_BA_EA(θ_A) · T_EA_C · λ·K⁻¹·[u, v, 1]ᵀ
 
 where W ≡ BB (robot-B base frame is the world frame, agreed 2026-09-23):
 
+- ``T_BA_BB``  双机基座标定：A 基座 -> B 基座（=世界）的变换，固定值。
 - ``T_EA_C``   hand-eye calibration, fixed (AX=XB, docs/calibration_plan.md).
 - ``T_BA_EA``  robot-A forward kinematics; supplied as a fixed capture pose
                in Phase 1 (robot A always shoots from the same pose), or by a
@@ -67,7 +68,6 @@ class CoordinateTransform:
         """
         self.T_EA_C = _pose_required(calibration, "T_EA_C")
         self.T_BA_BB = _pose_required(calibration, "T_BA_BB")   # A base -> B base
-        self.T_BB_BA = tf.invert_T(self.T_BA_BB)                # B base -> A base
 
         k = calibration.get("camera_intrinsics") or {}
         for key in ("fx", "fy", "cx", "cy"):
@@ -102,8 +102,11 @@ class CoordinateTransform:
             "no robot-A pose: pass t_ba_ea or t_ba_ea_provider")
 
     def T_W_EA(self) -> np.ndarray:
-        """Robot-A flange pose in world (= robot-B base) frame."""
-        return tf.compose(self.T_BB_BA, self.T_BA_EA())
+        """Robot-A flange pose in world (= robot-B base) frame.
+
+        T_W_EA = T_BA_BB @ T_BA_EA（T_BA_BB 即 A 基座 -> 世界的映射）。
+        """
+        return tf.compose(self.T_BA_BB, self.T_BA_EA())
 
     def T_W_C(self) -> np.ndarray:
         """Camera pose in world frame."""

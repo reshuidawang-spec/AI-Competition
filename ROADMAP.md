@@ -13,13 +13,16 @@
 - [ ] 机器人A真机只读检查：192.168.1.7 直连/双网卡、第二驱动实例启动、GetPose/DI 只读验收
 - [x] sim_world：工作台 + 箱体（顶面孔，孔径参数化待定，从 part_box001.yaml 读取、null 自动回退默认值）+ 任意 (x,y,rz)（2026-09-24，78 tests OK）
 - [x] sim_camera：透视渲染（圆→椭圆 + 噪声 + 亮度抖动 + 实例掩膜）；渲染↔坐标链闭环测试锁定（GT 像素逆变换回世界真值 <0.1mm）；渲染器兼作 YOLO 合成训练数据生成器
-- [ ] vision_ai 占位版（椭圆/霍夫检测，接口与 YOLO 版一致）
-- [ ] task_generator：按孔径分档生成测量策略（孔径 <65mm 轴向针侧触 / ≥65mm 十字水平支）
-- [ ] path_planner + sequence_planner：approach/safe/measure 位姿 + 最近邻顺序 + 过冲间隙
-- [ ] sim_probe：几何触发模拟（含 Stop 过冲分布，取自真机实测统计）
-- [ ] state_machine + main_controller + scripts/run_sim_closed_loop.py
+- [x] vision_ai：几何占位检测器（接口与 YOLO 版一致，W2 只换内部）+ YOLO-Seg 推理骨架 + 合成数据集生成器（2026-09-24）
+- [x] task_generator：按孔径分档生成测量策略（孔径 <65mm 轴向针侧触 / ≥65mm 十字水平支）
+- [x] path_planner + sequence_planner：孔内向外触壁搜索几何 + 最近邻/2-opt 顺序 + 过冲间隙 + 每点检查
+- [x] sim_probe：几何触发模拟（触发重复性 σ=0.04mm + Stop 过冲分布，取自真机实测统计）+ 触发点二分定位
+- [x] probe_measurement：有保护步进搜索（仿真/真机同一驱动逻辑）
+- [x] geometry_fitting + tolerance_evaluator（圆/轴线拟合、孔径/垂直度/孔距评价）
+- [x] hole_assigner：CAD 孔模式全排列配准 → 孔编号 + 箱体位姿（对称模式平局裁决）
+- [x] state_machine + main_controller + scripts/run_sim_closed_loop.py（2026-09-25）
 
-**W1 验收**：一键跑通端到端；注入 ±2mm 噪声下 4 孔粗定位误差 <2mm；生成位姿 100% 可达无越限；全模块 unittest。
+**W1 验收（2026-09-25 达成）**：一键跑通端到端；实验1 粗定位误差 0.316mm、实验2（移动箱体不重新示教）0.314mm（验收线 2.0）；4×16 触发全成；位姿全可达无越限；146 个 unittest 全绿。仿真闭环目标 A 完成。
 
 ## W2：视觉真实化
 
