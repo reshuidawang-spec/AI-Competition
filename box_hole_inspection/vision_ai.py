@@ -1,6 +1,6 @@
 """Vision perception: image -> DetectionResult.
 
-Two interchangeable backends behind ONE interface (callers see only
+Interchangeable backends behind ONE interface (callers see only
 ``detector.detect(image) -> schemas.DetectionResult``):
 
 - GeometricHoleDetector — W1 placeholder: threshold + contour + fitEllipse.
@@ -11,6 +11,9 @@ Two interchangeable backends behind ONE interface (callers see only
   0=box, 1=hole), hole centre = mask centroid (sub-pixel). Trained on the
   box only, runs offline — no cloud / no LLM anywhere in the loop.
 
+- EngineBoreDetector — supplied EngineBoreInspection v1 two-model detector;
+  preserves its part filter, recovery passes and ellipse quality checks.
+
 AI 只做感知：网络/几何只回答"哪里有孔"；H01~H04 的最终编号与箱体位姿由
 hole_assigner 的 CAD 模式配准决定。这里输出的 id 是占位编号（按图像行、
 列排序），不保证与真实孔号一致。
@@ -19,12 +22,19 @@ hole_assigner 的 CAD 模式配准决定。这里输出的 id 是占位编号（
 from __future__ import annotations
 
 import time
+import logging
+import math
+from pathlib import Path
+import re
+import tempfile
 from typing import Optional
 
 import cv2
 import numpy as np
 
 from box_hole_inspection import schemas
+
+log = logging.getLogger(__name__)
 
 # 几何占位检测器默认参数（对仿真渲染图验证过：4/4 孔、像素误差 <1px）
 BOX_BRIGHT_THRESH = 140        # 箱体顶面比台面亮的二值阈值
@@ -191,4 +201,110 @@ class YoloSegDetector:
             box_bbox=box_bbox or [],
             box_rz_hint_deg=None,
             holes=holes,
+        )
+
+
+class EngineBoreDetector:
+    """The supplied EngineBoreInspection v1 detector behind DetectionResult.
+
+    It runs the package's two active segmentation models, part filtering,
+    recovery passes and ellipse quality checks. Only reliable original-image
+    pixel centres are returned. Four reliable bores are required by the
+    downstream HoleAssigner; incomplete detections therefore stop the run.
+    """
+
+    def __init__(self, bore_model_path: Optional[str] = None,
+                 part_model_path: Optional[str] = None,
+                 part_id: str = "ENGINE_001"):
+        try:
+            from box_hole_inspection.engine_vision.detect_core import (
+                DEFAULT_MODEL, PART_MODEL, EngineDetector)
+        except ImportError as exc:
+            raise RuntimeError(
+                "EngineBoreDetector 需要 torch、ultralytics 和 Pillow") from exc
+        bore_path = Path(bore_model_path or DEFAULT_MODEL)
+        part_path = Path(part_model_path or PART_MODEL)
+        for path in (bore_path, part_path):
+            if not path.is_file():
+                raise FileNotFoundError(f"视觉模型不存在: {path}")
+        self.part_id = part_id
+        self._detector = EngineDetector(model_path=bore_path,
+                                        part_model_path=part_path)
+        self.last_diagnostics: dict = {}
+
+    def detect(self, image: np.ndarray,
+               timestamp_ms: Optional[float] = None) -> schemas.DetectionResult:
+        if (image is None or image.ndim != 3 or image.shape[2] != 3
+                or image.dtype != np.uint8):
+            raise ValueError("EngineBoreDetector expects a uint8 BGR image")
+        # The supplied detector accepts a path. PNG preserves the camera pixels
+        # exactly; its own rendered image and CSV stay inside the temp directory.
+        with tempfile.TemporaryDirectory(prefix="engine_bore_") as tmp:
+            image_path = Path(tmp) / "frame.png"
+            if not cv2.imwrite(str(image_path), image):
+                raise OSError(f"cannot write temporary frame: {image_path}")
+            report = self._detector.analyze(image_path, output_dir=tmp)
+
+        warnings = list(report.get("warnings", []))
+        review_ids = set()
+        for warning in warnings:
+            match = re.search(r"孔\s*(\d+)\s*(?:分割轮廓不稳定|拟合质量不足)",
+                              str(warning))
+            if match:
+                review_ids.add(int(match.group(1)))
+
+        selected = {int(h["hole_id"]): float(h["confidence"])
+                    for h in report.get("selected_bores", [])}
+        height, width = image.shape[:2]
+        holes = []
+        if report.get("part_constraint_applied", False):
+            for center in report.get("centers", []):
+                number = int(center["hole_id"])
+                confidence = selected.get(number, 0.0)
+                support = center.get("contour_support")
+                edge_verified = center.get("fit_source") == "image_edge_verified"
+                if (number in review_ids or confidence < 0.5
+                        or (support is not None and float(support) < 0.85
+                            and not edge_verified)):
+                    continue
+                cx, cy = float(center["center_x_px"]), float(center["center_y_px"])
+                axis1 = float(center["ellipse_axis1_px"])
+                axis2 = float(center["ellipse_axis2_px"])
+                angle = float(center["ellipse_angle_deg"])
+                if (not all(map(math.isfinite, (cx, cy, axis1, axis2, angle)))
+                        or min(axis1, axis2) <= 0
+                        or not (0 <= cx < width and 0 <= cy < height)):
+                    continue
+                corners = cv2.boxPoints(((cx, cy), (axis1, axis2), angle))
+                x0, y0 = corners.min(axis=0)
+                x1, y1 = corners.max(axis=0)
+                holes.append(schemas.HoleDetection(
+                    id=f"H{number:02d}", confidence=confidence,
+                    pixel_u=cx, pixel_v=cy,
+                    pixel_bbox=[float(max(0, x0)), float(max(0, y0)),
+                                float(min(width - 1, x1)), float(min(height - 1, y1))]))
+
+        part_proposals = [p for p in report.get("proposals", [])
+                          if p.get("class") == "part"]
+        best_part = max(part_proposals,
+                        key=lambda p: float(p.get("confidence", 0.0)),
+                        default=None)
+        box_bbox = list(best_part["box_xyxy"]) if best_part else []
+        self.last_diagnostics = {
+            "selected_count": len(selected),
+            "reliable_count": len(holes),
+            "part_constraint_applied": bool(report.get("part_constraint_applied")),
+            "warnings": warnings,
+        }
+        if len(holes) != 4:
+            log.warning("EngineBoreDetector: %d/4 reliable bores; %s",
+                        len(holes), warnings)
+        return schemas.DetectionResult(
+            part_id=self.part_id,
+            confidence=float(report.get("part_max_confidence", 0.0)),
+            timestamp_ms=timestamp_ms if timestamp_ms is not None
+            else time.time() * 1000.0,
+            box_bbox=box_bbox,
+            box_rz_hint_deg=None,
+            holes=sorted(holes, key=lambda h: h.id),
         )

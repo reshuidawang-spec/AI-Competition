@@ -58,6 +58,7 @@ class HoleAssigner:
     """
 
     def __init__(self, part_spec: dict, rz_range: tuple = (-90.0, 90.0)):
+        self.part_id = part_spec.get("part_id")
         nominal = []
         for h in part_spec.get("holes", []):
             c = h.get("center_o_mm")
@@ -79,6 +80,10 @@ class HoleAssigner:
     def assign(self, localization: schemas.LocalizationResult,
                ) -> schemas.LocalizationResult:
         """配准并修正孔编号与箱体位姿；返回新的 LocalizationResult。"""
+        if self.part_id and localization.part_id != self.part_id:
+            raise HoleAssignmentError(
+                f"工件 ID 不匹配：检测为 {localization.part_id!r}，"
+                f"名义孔型为 {self.part_id!r}")
         holes = [h for h in localization.holes if h.world_xyz is not None]
         if len(holes) != len(self.nominal_pts):
             raise HoleAssignmentError(

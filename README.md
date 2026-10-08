@@ -1,50 +1,59 @@
-# box_hole_inspection — 基于AI视觉感知的双机械臂箱体孔系自主检测系统
+# 人工智能比赛：双机械臂箱体孔系检测工程
 
-"人工智能+"创新比赛项目。视觉臂（CR5 @ 192.168.1.7 + 工业相机）AI 识别箱体孔并粗定位，测量臂（CR5 @ 192.168.5.1 + RMP60 五向测针）接触式精密测量，输出孔径/孔距/位置度/垂直度评价与检测报告。
+这是“人工智能+”创新比赛的可复用工程。仓库内包含仿真闭环、已训练的缸孔视觉模型、28 组照片及 LabelMe 标注、资源校验清单和依赖安装脚本。克隆后无需原始安装包，即可运行仿真和照片推理。
 
-本系统建立在姊妹项目 `cr5_rmp60_measurement` 已验证的真机测量体系之上（只读复用其测头几何注册表、安全门禁约定与停止过冲经验值），**不修改**该冻结项目。
+视觉臂识别工件孔位，测量臂以 RMP60 测针取得精密尺寸。当前可直接复现的是**仿真闭环和离线照片检测**；真机部署还需要本机 ROS 2、CR5 驱动、相机标定、工件 CAD 参数和现场安全验证。`ENGINE_001` 的模型给出原图像素圆心，不能直接作为机器人三维运动目标。
 
-## 设计原则
+## 环境与安装
 
-- AI 只做感知与检测区域识别，不预测高精度尺寸；高精度数据全部来自接触测头。
-- 所有真实机器人动作先支持 `simulation/dry_run`；真实模式三重门禁（`mode=real` + 注册面 approved + 姿态模板 verified）。
-- 模块间只传 `box_hole_inspection/schemas.py` 定义的 JSON 消息，每个模块独立可测。
-- 硬件全部藏在 `interfaces/` 抽象层后：仿真适配器为默认，真机适配器只替换标注过的函数。
-- 每个运动任务必须含：安全高度、速度限制、工作空间限制、急停、过冲间隙预留。
+已在 Ubuntu、Python 3.10 上验证。需要网络连接以从 PyPI 和 PyTorch 官方 CPU 源下载 Python 库；模型和照片已随仓库提供。推荐至少 4 GB 可用磁盘空间。其他操作系统的 Python 安装入口见下表，真机相关依赖按具体硬件另行配置。
 
-## 目录
-
-| 目录 | 内容 |
-|---|---|
-| `box_hole_inspection/` | 算法包（schemas / 坐标链 / 后续任务、规划、测量、拟合、评价模块） |
-| `interfaces/` | 硬件抽象层（CameraBase / RobotBase / ProbeBase + sim/real 适配器） |
-| `config/` | system.yaml / camera.yaml / calibration.json / part_box001.yaml |
-| `sim/` | 仿真世界/机器人/相机/测头（W1 后续模块） |
-| `scripts/` | 闭环入口与演示脚本（W1 后续模块） |
-| `tests/` | unittest 单测，每模块一个文件 |
-| `docs/` | architecture / calibration_plan / experiment_plan |
-| `data/runs/` | 检测运行输出（YYYY-MM-DD/<object>/<session_id>/） |
-
-## 快速开始
+| 系统 | 安装与验证命令 | 虚拟环境 Python |
+|---|---|---|
+| Ubuntu / Linux | `python3.10 scripts/bootstrap.py` | `./.venv/bin/python` |
+| Windows | `py -3.10 scripts/bootstrap.py` | `.venv\Scripts\python.exe` |
 
 ```bash
-cd ~/dobot_ws/src/box_hole_inspection
-PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
+git clone https://github.com/reshuidawang-spec/AI-Competition.git
+cd AI-Competition
+python3.10 scripts/bootstrap.py
 ```
 
-## 当前状态（2026-09-25：W1 仿真最小闭环完成）
+安装脚本创建项目内的 `.venv`，安装固定版本依赖，核验随包资源 SHA256，运行单元测试，并用已训练权重完成一次照片推理。Ubuntu 如缺少 `ensurepip`，脚本会尝试 `virtualenv`；若两者都没有，先安装 `python3.10-venv` 和 `python3-pip`。只需仿真时可运行 `python3.10 scripts/bootstrap.py --core-only`，省去视觉推理依赖。安装后可随时运行 `./.venv/bin/python scripts/verify_portable.py` 复查；Windows 请换用上表的 Python 路径。
 
-- [x] 全部模块：schemas / 坐标链 / 相机接口 / sim_robot(真实CR5 URDF) /
-      sim_world / sim_camera / vision_ai(几何+YOLO骨架) / 合成数据生成器 /
-      task_generator / path+sequence_planner / sim_probe / probe_measurement /
-      geometry_fitting / tolerance_evaluator / hole_assigner / 状态机 / 主控
-- [x] 一键闭环：`python3 scripts/run_sim_closed_loop.py --experiment 1|2`
-- [x] 146 unittest 全绿；实验1 粗定位 0.316mm / 实验2（移动箱体）0.314mm
-- [ ] W2：真实相机+标定、箱体照片标注+YOLO训练、视觉精度实验、A臂真机只读检查
+GitHub 将中文仓库名自动转换为 `-`，所以网址采用 `AI-Competition`；工程名称为“人工智能比赛”。
 
-## 重要约定
+## 运行
 
-- 坐标：长度 mm、角度 deg（JSON 边界）/ rad（numpy 内部）；W ≡ 机器人B基座。
-- 姿态：本包 RPY 约定为内旋 sxyz；**Dobot 控制器 rx/ry/rz 的映射是已知未决问题**（见姊妹项目 validate_cr5_pose_convention.py），真机适配器上线前必须验证。
-- 安全：软件停止链实测过冲 0.04~1.7mm，路径规划必须预留 `stop_overtravel_reserve_mm` 间隙。
-- 文档维护：每次里程碑同步更新 PROJECT_MEMORY.md / ROADMAP.md / COMMANDS.md。
+```bash
+# 已训练模型检测随包照片；结果写入 data/runs/日期/engine_vision_detections.json
+./.venv/bin/python scripts/run_engine_vision.py --images data/images/engine_bore_seed
+
+# 单张新照片；只输出像素圆心和质量诊断，不控制机械臂
+./.venv/bin/python scripts/run_engine_vision.py --images /path/to/photo.jpg --out /tmp/vision.json
+
+# 两组仿真闭环实验
+./.venv/bin/python scripts/run_sim_closed_loop.py --experiment 1
+./.venv/bin/python scripts/run_sim_closed_loop.py --experiment 2
+```
+
+随包照片可能用于模型训练或选模，不能视为独立测试集。在这 28 张照片上，23 张给出 4 个可靠圆心，5 张需要复核；详细条件和结果见 [视觉验收记录](docs/engine_bore_acceptance.md)。
+
+## 目录与工程边界
+
+| 路径 | 内容 |
+|---|---|
+| `box_hole_inspection/` | 消息结构、视觉检测、配准、规划、测量和评价算法 |
+| `interfaces/`、`sim/` | 硬件接口与默认仿真实现 |
+| `config/` | 系统配置、占位标定与工件名义参数 |
+| `data/models/engine_bore_v1/` | 正式 bore/part 训练权重和模型登记表 |
+| `data/images/engine_bore_seed/` | 28 对 JPG 照片和 LabelMe 标注 |
+| `data/portable_manifest.json` | 已发布资源的大小与 SHA256 校验值 |
+| `docs/engine_bore_eval/` | 验收结果、示例叠图 |
+| `scripts/`、`tests/` | 安装、自检、实验入口与单元测试 |
+
+原始 3.1 GB Windows 安装包及重复权重不在仓库中；运行上述流程所需的正式权重、照片和标注均已包含。运行结果保存在忽略提交的 `data/runs/`。旧 `BOX_001` 仿真孔型为 2×2，新缸体 `ENGINE_001` 为直列四孔，代码会拒绝混用。工件 CAD 数值和实物标定尚未完成。真机规划见 [路线图](ROADMAP.md)，命令索引见 [COMMANDS](COMMANDS.md)。
+
+## 许可
+
+仓库自有代码、随包模型权重及照片按 [MIT 许可证](LICENSE) 发布。安装脚本下载的第三方库遵循各自许可证。

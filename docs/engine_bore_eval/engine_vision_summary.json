@@ -1,0 +1,14 @@
+{
+  "images": 28,
+  "complete_images": 23,
+  "reliable_centers": 92,
+  "median_center_vs_label_centroid_px": 4.05,
+  "max_center_vs_label_centroid_px": 12.87,
+  "incomplete_images": [
+    "14a87586a9be579460da3c1a43ce6b17909b517070b23097d3fefb796754ca49.jpg",
+    "45752d38d81180b780a5698136f6ef1edb38150b30272748994af3844c767b7d.jpg",
+    "a6aaaeb438c7c90a773a210ad33473b8bd6041e0635f7463f948d10789dc7d71.jpg",
+    "e4900e8b7dd41082f8c404e0ed95db3f5f0af8ea2e23ce010d977f99aa672efa.jpg",
+    "e76fe6f57c714a09612c41593d1afaf283dd7a1bb81e69d0087c17888c1977fc.jpg"
+  ]
+}

@@ -1,0 +1,1932 @@
+[
+  {
+    "image": "data/images/engine_bore_seed/0293a798fcfe986f992ca4d83db0cfda68faeb48a9c8702f0b0bb84ae9e110c4.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9148139357566833,
+      "timestamp_ms": 1791440216657.3745,
+      "box_bbox": [
+        49.01594161987305,
+        928.5028686523438,
+        1350.4219970703125,
+        4041.197021484375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9655,
+          "pixel_u": 758.05,
+          "pixel_v": 1362.83,
+          "pixel_bbox": [
+            349.8795166015625,
+            953.6539306640625,
+            1166.220458984375,
+            1772.0059814453125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9555,
+          "pixel_u": 750.51,
+          "pixel_v": 2070.03,
+          "pixel_bbox": [
+            351.56146240234375,
+            1667.616455078125,
+            1149.45849609375,
+            2472.443603515625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9821,
+          "pixel_u": 739.7,
+          "pixel_v": 2795.43,
+          "pixel_bbox": [
+            405.2392272949219,
+            2451.7705078125,
+            1074.1607666015625,
+            3139.08935546875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9826,
+          "pixel_u": 728.3,
+          "pixel_v": 3550.96,
+          "pixel_bbox": [
+            383.4143371582031,
+            3191.152099609375,
+            1073.1856689453125,
+            3910.767822265625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/14a87586a9be579460da3c1a43ce6b17909b517070b23097d3fefb796754ca49.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9579198956489563,
+      "timestamp_ms": 1791440217906.6736,
+      "box_bbox": [
+        97.73920440673828,
+        942.0220947265625,
+        2539.46142578125,
+        3495.49169921875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9792,
+          "pixel_u": 2003.01,
+          "pixel_v": 1410.61,
+          "pixel_bbox": [
+            1667.4891357421875,
+            1085.3712158203125,
+            2338.53076171875,
+            1735.8487548828125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9703,
+          "pixel_u": 1156.83,
+          "pixel_v": 2345.07,
+          "pixel_bbox": [
+            825.6504516601562,
+            2016.873779296875,
+            1488.009521484375,
+            2673.266357421875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9769,
+          "pixel_u": 698.27,
+          "pixel_v": 2854.24,
+          "pixel_bbox": [
+            288.041748046875,
+            2443.814697265625,
+            1108.498291015625,
+            3264.665283203125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 3,
+      "part_constraint_applied": true,
+      "warnings": [
+        "孔 2 拟合质量不足：轮廓不够支持椭圆：支持比例 53%，角度覆盖 100%",
+        "有效拟合中心为 3 个，请人工复核。"
+      ]
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/2b89840def15008996ab3ebb7d307e3243683ebbdd61a54e82da750a91a6cf72.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9496551752090454,
+      "timestamp_ms": 1791440219426.1062,
+      "box_bbox": [
+        155.01092529296875,
+        695.9016723632812,
+        2590.7021484375,
+        3624.280029296875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9632,
+          "pixel_u": 651.76,
+          "pixel_v": 1245.01,
+          "pixel_bbox": [
+            319.47784423828125,
+            899.5794677734375,
+            984.0421752929688,
+            1590.4405517578125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9746,
+          "pixel_u": 982.37,
+          "pixel_v": 1689.53,
+          "pixel_bbox": [
+            609.150634765625,
+            1305.05078125,
+            1355.58935546875,
+            2074.00927734375
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9514,
+          "pixel_u": 1372.68,
+          "pixel_v": 2212.56,
+          "pixel_bbox": [
+            953.4166259765625,
+            1783.702880859375,
+            1791.9434814453125,
+            2641.417236328125
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9829,
+          "pixel_u": 1839.82,
+          "pixel_v": 2839.9,
+          "pixel_bbox": [
+            1461.3294677734375,
+            2451.68017578125,
+            2218.310302734375,
+            3228.11962890625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/2bc1b6d7581ee378856fd862d2f21cbb655786bff4f3b4a1ed70fab8bb494935.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9229050278663635,
+      "timestamp_ms": 1791440220771.5225,
+      "box_bbox": [
+        217.88760375976562,
+        1891.998046875,
+        2944.9296875,
+        2991.90966796875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9634,
+          "pixel_u": 694.35,
+          "pixel_v": 2178.74,
+          "pixel_bbox": [
+            403.977783203125,
+            1928.3212890625,
+            984.72216796875,
+            2429.15869140625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9759,
+          "pixel_u": 1210.79,
+          "pixel_v": 2257.83,
+          "pixel_bbox": [
+            910.0386352539062,
+            1998.1627197265625,
+            1511.54150390625,
+            2517.497314453125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9792,
+          "pixel_u": 1796.15,
+          "pixel_v": 2348.73,
+          "pixel_bbox": [
+            1510.0283203125,
+            2113.937744140625,
+            2082.271728515625,
+            2583.522216796875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9699,
+          "pixel_u": 2469.75,
+          "pixel_v": 2452.7,
+          "pixel_bbox": [
+            2128.7587890625,
+            2168.254150390625,
+            2810.7412109375,
+            2737.145751953125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/3e45c3fa0f09ebdfb73859a63172ade1be9953ba17cf28fbfcc3878f0a3e6cb8.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.891040563583374,
+      "timestamp_ms": 1791440222000.8267,
+      "box_bbox": [
+        0.0,
+        1649.55810546875,
+        2456.02880859375,
+        2695.719970703125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9632,
+          "pixel_u": 408.77,
+          "pixel_v": 2155.74,
+          "pixel_bbox": [
+            102.96759033203125,
+            1857.255615234375,
+            714.5724487304688,
+            2454.224365234375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9752,
+          "pixel_u": 1012.47,
+          "pixel_v": 2180.51,
+          "pixel_bbox": [
+            683.798828125,
+            1852.1982421875,
+            1341.14111328125,
+            2508.82177734375
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9697,
+          "pixel_u": 1579.33,
+          "pixel_v": 2200.74,
+          "pixel_bbox": [
+            1302.6192626953125,
+            1917.9112548828125,
+            1856.0406494140625,
+            2483.568603515625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9562,
+          "pixel_u": 2113.14,
+          "pixel_v": 2221.48,
+          "pixel_bbox": [
+            1860.189697265625,
+            1957.7481689453125,
+            2366.090087890625,
+            2485.2119140625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/3ea475ef3fde1538048f56c693ab186c7e4a0a6fc47cf66cb276869484a324cc.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9678440093994141,
+      "timestamp_ms": 1791440223194.3123,
+      "box_bbox": [
+        19.8885498046875,
+        792.6776123046875,
+        2367.63427734375,
+        3580.73291015625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.974,
+          "pixel_u": 651.74,
+          "pixel_v": 1404.32,
+          "pixel_bbox": [
+            222.65843200683594,
+            974.154541015625,
+            1080.821533203125,
+            1834.4853515625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9689,
+          "pixel_u": 1079.98,
+          "pixel_v": 1982.34,
+          "pixel_bbox": [
+            742.071044921875,
+            1642.5604248046875,
+            1417.888916015625,
+            2322.11962890625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9677,
+          "pixel_u": 1476.51,
+          "pixel_v": 2518.56,
+          "pixel_bbox": [
+            1097.4112548828125,
+            2137.427490234375,
+            1855.6087646484375,
+            2899.692626953125
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9682,
+          "pixel_u": 1848.66,
+          "pixel_v": 3023.12,
+          "pixel_bbox": [
+            1484.18701171875,
+            2658.367431640625,
+            2213.133056640625,
+            3387.872802734375
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/45752d38d81180b780a5698136f6ef1edb38150b30272748994af3844c767b7d.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9670150279998779,
+      "timestamp_ms": 1791440224421.5137,
+      "box_bbox": [
+        1.141699194908142,
+        1219.898193359375,
+        2576.145263671875,
+        3437.3310546875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9565,
+          "pixel_u": 2144.49,
+          "pixel_v": 1656.18,
+          "pixel_bbox": [
+            1823.11181640625,
+            1344.4761962890625,
+            2465.8681640625,
+            1967.8839111328125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9545,
+          "pixel_u": 1221.89,
+          "pixel_v": 2302.17,
+          "pixel_bbox": [
+            825.2937622070312,
+            1914.7012939453125,
+            1618.486328125,
+            2689.638671875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9858,
+          "pixel_u": 629.3,
+          "pixel_v": 2715.09,
+          "pixel_bbox": [
+            286.1806640625,
+            2387.577392578125,
+            972.4192504882812,
+            3042.602783203125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 3,
+      "part_constraint_applied": true,
+      "warnings": [
+        "孔 2 拟合质量不足：轮廓不够支持椭圆：支持比例 51%，角度覆盖 100%",
+        "有效拟合中心为 3 个，请人工复核。"
+      ]
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/4b2af54ad2ae6878bbb034162636ddf7f9dd52d544ea4b778c7a9ac56610530d.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9148430824279785,
+      "timestamp_ms": 1791440225620.6975,
+      "box_bbox": [
+        498.2352294921875,
+        1241.6597900390625,
+        1823.8819580078125,
+        4029.5771484375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9735,
+          "pixel_u": 1294.82,
+          "pixel_v": 1546.11,
+          "pixel_bbox": [
+            1000.5317993164062,
+            1297.49658203125,
+            1589.1080322265625,
+            1794.723388671875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9718,
+          "pixel_u": 1253.86,
+          "pixel_v": 2063.11,
+          "pixel_bbox": [
+            922.6347045898438,
+            1764.5662841796875,
+            1585.085205078125,
+            2361.654052734375
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9685,
+          "pixel_u": 1203.77,
+          "pixel_v": 2681.0,
+          "pixel_bbox": [
+            803.6959838867188,
+            2293.08349609375,
+            1603.843994140625,
+            3068.91650390625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9685,
+          "pixel_u": 1142.25,
+          "pixel_v": 3439.5,
+          "pixel_bbox": [
+            704.066650390625,
+            2987.170166015625,
+            1580.4332275390625,
+            3891.829833984375
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/4bcd7b3b27584829f0dad78b5e8f479c1692dd43ce55b4c908aa1d3a333e4963.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9054051041603088,
+      "timestamp_ms": 1791440226826.9734,
+      "box_bbox": [
+        29.809202194213867,
+        1481.7122802734375,
+        2541.326416015625,
+        2672.7041015625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9676,
+          "pixel_u": 556.68,
+          "pixel_v": 2064.91,
+          "pixel_bbox": [
+            138.31947326660156,
+            1645.3404541015625,
+            975.04052734375,
+            2484.479248046875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9559,
+          "pixel_u": 1210.52,
+          "pixel_v": 2107.06,
+          "pixel_bbox": [
+            896.26318359375,
+            1774.069091796875,
+            1524.77685546875,
+            2440.051025390625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9695,
+          "pixel_u": 1763.83,
+          "pixel_v": 2141.12,
+          "pixel_bbox": [
+            1517.1644287109375,
+            1858.7633056640625,
+            2010.4954833984375,
+            2423.47705078125
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9824,
+          "pixel_u": 2240.51,
+          "pixel_v": 2170.43,
+          "pixel_bbox": [
+            2027.08984375,
+            1911.23193359375,
+            2453.93017578125,
+            2429.6279296875
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/4fbb257c759603d36ed7ef25a1d0bbb98829a64857968c86d0d0359a421abe24.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9192594289779663,
+      "timestamp_ms": 1791440228057.1743,
+      "box_bbox": [
+        668.1666870117188,
+        645.9749755859375,
+        1964.0743408203125,
+        3766.508056640625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9626,
+          "pixel_u": 1298.21,
+          "pixel_v": 1168.78,
+          "pixel_bbox": [
+            957.2332153320312,
+            817.6436767578125,
+            1639.186767578125,
+            1519.9163818359375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9532,
+          "pixel_u": 1284.0,
+          "pixel_v": 1923.69,
+          "pixel_bbox": [
+            966.5810546875,
+            1601.720947265625,
+            1601.4189453125,
+            2245.658935546875
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9809,
+          "pixel_u": 1269.54,
+          "pixel_v": 2641.74,
+          "pixel_bbox": [
+            888.2954711914062,
+            2264.19189453125,
+            1650.78466796875,
+            3019.2880859375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9729,
+          "pixel_u": 1256.89,
+          "pixel_v": 3329.87,
+          "pixel_bbox": [
+            892.9849243164062,
+            2972.880615234375,
+            1620.7950439453125,
+            3686.859619140625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/6030dba47dafa117c602ebebc5a98c20a50a02d45b9e136b92a561b8aee6f258.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9133011698722839,
+      "timestamp_ms": 1791440229309.2913,
+      "box_bbox": [
+        756.2959594726562,
+        378.8674621582031,
+        2356.11474609375,
+        4072.5517578125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.979,
+          "pixel_u": 1565.48,
+          "pixel_v": 895.48,
+          "pixel_bbox": [
+            1155.101806640625,
+            496.3877258300781,
+            1975.858154296875,
+            1294.572265625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9653,
+          "pixel_u": 1593.17,
+          "pixel_v": 1605.85,
+          "pixel_bbox": [
+            1142.4935302734375,
+            1154.9320068359375,
+            2043.8465576171875,
+            2056.76806640625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9768,
+          "pixel_u": 1626.47,
+          "pixel_v": 2435.73,
+          "pixel_bbox": [
+            1140.418212890625,
+            1929.944580078125,
+            2112.521728515625,
+            2941.515380859375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9954,
+          "pixel_u": 1667.92,
+          "pixel_v": 3427.13,
+          "pixel_bbox": [
+            1220.6796875,
+            2920.138916015625,
+            2115.160400390625,
+            3934.120849609375
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/6a8f5d4aef64e37e04cccf07671ad2b59c17f0eab9659578fa63ceb1cb99cd80.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.8921065330505371,
+      "timestamp_ms": 1791440230528.4014,
+      "box_bbox": [
+        226.09840393066406,
+        482.42987060546875,
+        1825.30908203125,
+        4230.123046875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9087,
+          "pixel_u": 1110.01,
+          "pixel_v": 707.12,
+          "pixel_bbox": [
+            689.764404296875,
+            253.6635284423828,
+            1530.255615234375,
+            1160.576416015625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9689,
+          "pixel_u": 1063.35,
+          "pixel_v": 1533.02,
+          "pixel_bbox": [
+            622.0165405273438,
+            1051.994384765625,
+            1504.6834716796875,
+            2014.045654296875
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9711,
+          "pixel_u": 1009.48,
+          "pixel_v": 2464.07,
+          "pixel_bbox": [
+            578.1832275390625,
+            1972.26904296875,
+            1440.776611328125,
+            2955.87109375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.8131,
+          "pixel_u": 948.62,
+          "pixel_v": 3531.51,
+          "pixel_bbox": [
+            588.1021728515625,
+            3050.22998046875,
+            1309.1378173828125,
+            4012.7900390625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/6d42abf81f3135aa542f52c5b0bf1ec93fa016269243acd0a55a6a46bbea7f3f.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9360654950141907,
+      "timestamp_ms": 1791440231715.9353,
+      "box_bbox": [
+        328.7720031738281,
+        835.9503173828125,
+        2100.68994140625,
+        3443.716064453125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9468,
+          "pixel_u": 1409.05,
+          "pixel_v": 1088.27,
+          "pixel_bbox": [
+            1126.4017333984375,
+            926.1461181640625,
+            1691.6983642578125,
+            1250.3939208984375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9657,
+          "pixel_u": 1372.92,
+          "pixel_v": 1494.35,
+          "pixel_bbox": [
+            1050.4071044921875,
+            1285.7911376953125,
+            1695.4329833984375,
+            1702.9088134765625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9737,
+          "pixel_u": 1325.36,
+          "pixel_v": 2036.4,
+          "pixel_bbox": [
+            946.9126586914062,
+            1751.308349609375,
+            1703.8072509765625,
+            2321.49169921875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9876,
+          "pixel_u": 1258.38,
+          "pixel_v": 2785.15,
+          "pixel_bbox": [
+            776.0028076171875,
+            2355.96142578125,
+            1740.7572021484375,
+            3214.33837890625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/711a70e3b880d83eec35f1faeb42bd72691ebf2f21c33f84851e3476f67fa240.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9169196486473083,
+      "timestamp_ms": 1791440232945.6816,
+      "box_bbox": [
+        659.6730346679688,
+        1018.0220947265625,
+        2020.240234375,
+        4304.267578125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9688,
+          "pixel_u": 1374.37,
+          "pixel_v": 1496.35,
+          "pixel_bbox": [
+            938.4098510742188,
+            1061.666748046875,
+            1810.3302001953125,
+            1931.033203125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9663,
+          "pixel_u": 1360.79,
+          "pixel_v": 2244.15,
+          "pixel_bbox": [
+            945.9328002929688,
+            1828.02294921875,
+            1775.647216796875,
+            2660.276611328125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9682,
+          "pixel_u": 1347.24,
+          "pixel_v": 3004.54,
+          "pixel_bbox": [
+            959.3840942382812,
+            2609.180908203125,
+            1735.095947265625,
+            3399.899169921875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9772,
+          "pixel_u": 1333.88,
+          "pixel_v": 3793.98,
+          "pixel_bbox": [
+            900.6019287109375,
+            3351.1591796875,
+            1767.1580810546875,
+            4236.80078125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/754ef2242ccdf4790e041e0b69ded905c46ef16d8f87ae1dc7b16aa4e8721fec.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9133983254432678,
+      "timestamp_ms": 1791440234174.5596,
+      "box_bbox": [
+        610.0384521484375,
+        543.0185546875,
+        2008.0103759765625,
+        3748.579833984375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9601,
+          "pixel_u": 1324.49,
+          "pixel_v": 940.97,
+          "pixel_bbox": [
+            971.8640747070312,
+            626.031494140625,
+            1677.115966796875,
+            1255.908447265625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9736,
+          "pixel_u": 1319.87,
+          "pixel_v": 1576.97,
+          "pixel_bbox": [
+            941.5504760742188,
+            1227.115966796875,
+            1698.189453125,
+            1926.823974609375
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9911,
+          "pixel_u": 1312.38,
+          "pixel_v": 2297.63,
+          "pixel_bbox": [
+            880.5465698242188,
+            1876.7144775390625,
+            1744.21337890625,
+            2718.545166015625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.986,
+          "pixel_u": 1305.23,
+          "pixel_v": 3132.4,
+          "pixel_bbox": [
+            897.2935180664062,
+            2715.2666015625,
+            1713.16650390625,
+            3549.533203125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/75debbce5f835c0161c3a1ef3170354b5da85213d3bbbca08d5baa0bef160f73.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.8964514136314392,
+      "timestamp_ms": 1791440235404.933,
+      "box_bbox": [
+        76.82782745361328,
+        1887.5899658203125,
+        2524.81591796875,
+        2946.726318359375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9421,
+          "pixel_u": 406.93,
+          "pixel_v": 2390.06,
+          "pixel_bbox": [
+            143.92904663085938,
+            2115.861572265625,
+            669.930908203125,
+            2664.258544921875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9546,
+          "pixel_u": 931.87,
+          "pixel_v": 2396.35,
+          "pixel_bbox": [
+            646.096435546875,
+            2103.4990234375,
+            1217.6435546875,
+            2689.201171875
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9603,
+          "pixel_u": 1489.87,
+          "pixel_v": 2404.9,
+          "pixel_bbox": [
+            1149.4163818359375,
+            2064.346435546875,
+            1830.3236083984375,
+            2745.453369140625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9725,
+          "pixel_u": 2090.44,
+          "pixel_v": 2411.59,
+          "pixel_bbox": [
+            1804.127197265625,
+            2132.84521484375,
+            2376.7529296875,
+            2690.3349609375
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/8042fe2cae9e11cfb1ce230cd95fb3356e54be60d7282fe8aa4b4f7e0af7db5e.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9256992340087891,
+      "timestamp_ms": 1791440236577.1316,
+      "box_bbox": [
+        756.302001953125,
+        257.33935546875,
+        4168.48291015625,
+        1632.8297119140625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9879,
+          "pixel_u": 1379.31,
+          "pixel_v": 836.64,
+          "pixel_bbox": [
+            1017.8375244140625,
+            527.366455078125,
+            1740.7825927734375,
+            1145.91357421875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9819,
+          "pixel_u": 2194.36,
+          "pixel_v": 918.13,
+          "pixel_bbox": [
+            1786.0673828125,
+            536.5219116210938,
+            2602.65283203125,
+            1299.738037109375
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9741,
+          "pixel_u": 2949.81,
+          "pixel_v": 992.02,
+          "pixel_bbox": [
+            2534.740966796875,
+            590.9994506835938,
+            3364.879150390625,
+            1393.04052734375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9767,
+          "pixel_u": 3657.33,
+          "pixel_v": 1061.42,
+          "pixel_bbox": [
+            3255.32373046875,
+            669.1768798828125,
+            4059.33642578125,
+            1453.663330078125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/81857a86514490e389ea319dd22d7eb2874a2a80e4a35ce404e968e03add7309.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9117287397384644,
+      "timestamp_ms": 1791440237843.0327,
+      "box_bbox": [
+        593.1392822265625,
+        125.53527069091797,
+        1922.25732421875,
+        3253.478271484375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9752,
+          "pixel_u": 1352.62,
+          "pixel_v": 581.2,
+          "pixel_bbox": [
+            972.6141967773438,
+            213.32901000976562,
+            1732.625732421875,
+            949.071044921875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9548,
+          "pixel_u": 1303.45,
+          "pixel_v": 1267.04,
+          "pixel_bbox": [
+            908.3680419921875,
+            879.638671875,
+            1698.5318603515625,
+            1654.44140625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9766,
+          "pixel_u": 1253.0,
+          "pixel_v": 1977.48,
+          "pixel_bbox": [
+            842.498046875,
+            1569.716552734375,
+            1663.501953125,
+            2385.243408203125
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9729,
+          "pixel_u": 1200.85,
+          "pixel_v": 2717.64,
+          "pixel_bbox": [
+            875.866943359375,
+            2386.8115234375,
+            1525.8330078125,
+            3048.46826171875
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/85f9f06eb8e2e1e1896ee084d81b057e047d95c5795d2fcd5b69ba0c3b1e6eb7.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.8589248657226562,
+      "timestamp_ms": 1791440238986.2598,
+      "box_bbox": [
+        98.71116638183594,
+        200.8054656982422,
+        3747.290771484375,
+        1320.039794921875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.5702,
+          "pixel_u": 915.82,
+          "pixel_v": 687.25,
+          "pixel_bbox": [
+            429.9424743652344,
+            421.96136474609375,
+            1401.697509765625,
+            952.5386352539062
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.8944,
+          "pixel_u": 1997.16,
+          "pixel_v": 748.84,
+          "pixel_bbox": [
+            1549.495849609375,
+            475.5813293457031,
+            2444.82421875,
+            1022.0987548828125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.933,
+          "pixel_u": 2993.94,
+          "pixel_v": 802.67,
+          "pixel_bbox": [
+            2538.477294921875,
+            496.42132568359375,
+            3449.402587890625,
+            1108.918701171875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.8113,
+          "pixel_u": 3922.62,
+          "pixel_v": 853.21,
+          "pixel_bbox": [
+            3461.04296875,
+            543.1832885742188,
+            4384.197265625,
+            1163.23681640625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/961bae2b04df5d0981bea33cec8b4fcdc1a1c312f10d51024e64a60a4d254227.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.900231659412384,
+      "timestamp_ms": 1791440240286.4827,
+      "box_bbox": [
+        161.3097686767578,
+        757.3304443359375,
+        3359.21875,
+        1886.744140625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.7432,
+          "pixel_u": 754.04,
+          "pixel_v": 1364.11,
+          "pixel_bbox": [
+            370.4737854003906,
+            1079.089111328125,
+            1137.6060791015625,
+            1649.130859375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.8452,
+          "pixel_u": 1517.68,
+          "pixel_v": 1276.97,
+          "pixel_bbox": [
+            1135.7803955078125,
+            1001.6469116210938,
+            1899.5797119140625,
+            1552.2930908203125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.937,
+          "pixel_u": 2338.22,
+          "pixel_v": 1184.24,
+          "pixel_bbox": [
+            1962.0859375,
+            939.25439453125,
+            2714.35400390625,
+            1429.2255859375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9126,
+          "pixel_u": 3213.7,
+          "pixel_v": 1084.76,
+          "pixel_bbox": [
+            2822.307861328125,
+            873.3394165039062,
+            3605.092041015625,
+            1296.1806640625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/a6aaaeb438c7c90a773a210ad33473b8bd6041e0635f7463f948d10789dc7d71.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9499267339706421,
+      "timestamp_ms": 1791440241540.496,
+      "box_bbox": [
+        768.9552612304688,
+        196.89674377441406,
+        3157.636962890625,
+        2506.818359375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9735,
+          "pixel_u": 1424.41,
+          "pixel_v": 1805.71,
+          "pixel_bbox": [
+            1025.452880859375,
+            1426.561279296875,
+            1823.3671875,
+            2184.858642578125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9772,
+          "pixel_u": 1915.82,
+          "pixel_v": 1316.61,
+          "pixel_bbox": [
+            1602.8009033203125,
+            1033.4697265625,
+            2228.839111328125,
+            1599.750244140625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9428,
+          "pixel_u": 2676.9,
+          "pixel_v": 554.01,
+          "pixel_bbox": [
+            2388.88818359375,
+            303.43255615234375,
+            2964.91162109375,
+            804.5874633789062
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 3,
+      "part_constraint_applied": true,
+      "warnings": [
+        "孔 3 拟合质量不足：轮廓不够支持椭圆：支持比例 53%，角度覆盖 100%",
+        "有效拟合中心为 3 个，请人工复核。"
+      ]
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/bc20da602cbfd57f388a5e3f399f7469fa7a99087b15f2bc85ff60c37636fbf2.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.962108314037323,
+      "timestamp_ms": 1791440242751.265,
+      "box_bbox": [
+        0.0,
+        831.13623046875,
+        2553.087158203125,
+        3430.214111328125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9267,
+          "pixel_u": 2062.64,
+          "pixel_v": 1127.99,
+          "pixel_bbox": [
+            1754.8056640625,
+            949.781982421875,
+            2370.47412109375,
+            1306.197998046875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9138,
+          "pixel_u": 1729.57,
+          "pixel_v": 1481.31,
+          "pixel_bbox": [
+            1387.1048583984375,
+            1268.46435546875,
+            2072.03515625,
+            1694.15576171875
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9564,
+          "pixel_u": 1301.17,
+          "pixel_v": 1939.4,
+          "pixel_bbox": [
+            927.6633911132812,
+            1682.3642578125,
+            1674.6767578125,
+            2196.435791015625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9738,
+          "pixel_u": 727.23,
+          "pixel_v": 2549.34,
+          "pixel_bbox": [
+            214.59078979492188,
+            2111.96435546875,
+            1239.869140625,
+            2986.7158203125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/c38e5c354113312485be6eb3bb2fd5bcaad590f35f9b1bf33c201d8314ebedd1.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9125261306762695,
+      "timestamp_ms": 1791440244322.757,
+      "box_bbox": [
+        24.047313690185547,
+        76.72433471679688,
+        3802.947998046875,
+        1515.32861328125
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.7566,
+          "pixel_u": 580.69,
+          "pixel_v": 785.08,
+          "pixel_bbox": [
+            111.99098205566406,
+            396.58160400390625,
+            1049.3890380859375,
+            1173.578369140625
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.8028,
+          "pixel_u": 1459.35,
+          "pixel_v": 738.09,
+          "pixel_bbox": [
+            966.1279296875,
+            326.1092529296875,
+            1952.572021484375,
+            1150.07080078125
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9529,
+          "pixel_u": 2460.2,
+          "pixel_v": 689.84,
+          "pixel_bbox": [
+            1953.46630859375,
+            291.5406188964844,
+            2966.93359375,
+            1088.139404296875
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9393,
+          "pixel_u": 3616.48,
+          "pixel_v": 630.84,
+          "pixel_bbox": [
+            3092.718505859375,
+            293.0275573730469,
+            4140.24169921875,
+            968.6524658203125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/d32d76981de460e91b6d7aa8ef2bdb5b738ed3433d3b2499a1396cc1c08488ac.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9212448596954346,
+      "timestamp_ms": 1791440245551.3662,
+      "box_bbox": [
+        1110.8411865234375,
+        588.20751953125,
+        2545.770751953125,
+        4021.456787109375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9733,
+          "pixel_u": 1906.85,
+          "pixel_v": 1098.29,
+          "pixel_bbox": [
+            1473.768310546875,
+            670.1256713867188,
+            2339.931640625,
+            1526.4544677734375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9837,
+          "pixel_u": 1866.32,
+          "pixel_v": 1872.65,
+          "pixel_bbox": [
+            1468.9200439453125,
+            1480.5579833984375,
+            2263.719970703125,
+            2264.7421875
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9627,
+          "pixel_u": 1825.95,
+          "pixel_v": 2654.04,
+          "pixel_bbox": [
+            1382.700927734375,
+            2213.156005859375,
+            2269.19921875,
+            3094.924072265625
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.979,
+          "pixel_u": 1791.15,
+          "pixel_v": 3455.97,
+          "pixel_bbox": [
+            1323.007080078125,
+            2985.17333984375,
+            2259.29296875,
+            3926.7666015625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/d718d35dd9167d5b727a87007ad8bb215f1305079e76cdcf86097f4e7bdddf17.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.949337363243103,
+      "timestamp_ms": 1791440246732.2727,
+      "box_bbox": [
+        65.87522888183594,
+        373.70257568359375,
+        2487.451904296875,
+        3681.041015625
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9608,
+          "pixel_u": 737.28,
+          "pixel_v": 1033.61,
+          "pixel_bbox": [
+            347.83160400390625,
+            642.32421875,
+            1126.728515625,
+            1424.895751953125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9879,
+          "pixel_u": 1102.5,
+          "pixel_v": 1706.68,
+          "pixel_bbox": [
+            700.2242431640625,
+            1303.478759765625,
+            1504.7757568359375,
+            2109.88134765625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9636,
+          "pixel_u": 1462.7,
+          "pixel_v": 2372.4,
+          "pixel_bbox": [
+            1076.6397705078125,
+            1986.70556640625,
+            1848.7601318359375,
+            2758.09423828125
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9637,
+          "pixel_u": 1827.25,
+          "pixel_v": 3042.03,
+          "pixel_bbox": [
+            1389.642578125,
+            2605.634033203125,
+            2264.857421875,
+            3478.426025390625
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/e4900e8b7dd41082f8c404e0ed95db3f5f0af8ea2e23ce010d977f99aa672efa.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9502667188644409,
+      "timestamp_ms": 1791440248025.7617,
+      "box_bbox": [
+        169.16268920898438,
+        1526.7972412109375,
+        2599.12646484375,
+        3747.099609375
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.5817,
+          "pixel_u": 1393.11,
+          "pixel_v": 1877.53,
+          "pixel_bbox": [
+            1086.4239501953125,
+            1746.4761962890625,
+            1699.7960205078125,
+            2008.5838623046875
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.7091,
+          "pixel_u": 1428.18,
+          "pixel_v": 2254.93,
+          "pixel_bbox": [
+            1029.6336669921875,
+            2040.2994384765625,
+            1826.7264404296875,
+            2469.560302734375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.5567,
+          "pixel_u": 1495.67,
+          "pixel_v": 2956.35,
+          "pixel_bbox": [
+            911.0288696289062,
+            2521.73876953125,
+            2080.311279296875,
+            3390.96142578125
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 3,
+      "part_constraint_applied": true,
+      "warnings": [
+        "孔 3 拟合质量不足：轮廓不够支持椭圆：支持比例 67%，角度覆盖 67%",
+        "有效拟合中心为 3 个，请人工复核。"
+      ]
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/e76fe6f57c714a09612c41593d1afaf283dd7a1bb81e69d0087c17888c1977fc.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.7710058689117432,
+      "timestamp_ms": 1791440250842.5159,
+      "box_bbox": [
+        60.585750579833984,
+        973.8087158203125,
+        2132.9365234375,
+        2589.055419921875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.7495,
+          "pixel_u": 1224.65,
+          "pixel_v": 1498.77,
+          "pixel_bbox": [
+            821.9019165039062,
+            1319.073486328125,
+            1627.3980712890625,
+            1678.466552734375
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9645,
+          "pixel_u": 1142.14,
+          "pixel_v": 2054.59,
+          "pixel_bbox": [
+            627.9179077148438,
+            1765.4305419921875,
+            1656.3621826171875,
+            2343.74951171875
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 2,
+      "reliable_count": 2,
+      "part_constraint_applied": true,
+      "warnings": [
+        "有效拟合中心为 2 个，请人工复核。"
+      ]
+    }
+  },
+  {
+    "image": "data/images/engine_bore_seed/f41cc8e3db5bde3e825a1ddc27f4180e456cd5a893f0a29e0e654e1643760c8c.jpg",
+    "detection": {
+      "part_id": "ENGINE_001",
+      "confidence": 0.9188562631607056,
+      "timestamp_ms": 1791440252091.664,
+      "box_bbox": [
+        605.9679565429688,
+        472.7591552734375,
+        1989.031494140625,
+        3817.6669921875
+      ],
+      "box_rz_hint_deg": null,
+      "holes": [
+        {
+          "id": "H01",
+          "confidence": 0.9766,
+          "pixel_u": 1337.05,
+          "pixel_v": 947.99,
+          "pixel_bbox": [
+            900.5257568359375,
+            515.511962890625,
+            1773.5743408203125,
+            1380.468017578125
+          ]
+        },
+        {
+          "id": "H02",
+          "confidence": 0.9895,
+          "pixel_u": 1318.32,
+          "pixel_v": 1707.34,
+          "pixel_bbox": [
+            879.8004150390625,
+            1271.2890625,
+            1756.8394775390625,
+            2143.390869140625
+          ]
+        },
+        {
+          "id": "H03",
+          "confidence": 0.9728,
+          "pixel_u": 1298.86,
+          "pixel_v": 2483.28,
+          "pixel_bbox": [
+            967.0404663085938,
+            2148.51416015625,
+            1630.679443359375,
+            2818.0458984375
+          ]
+        },
+        {
+          "id": "H04",
+          "confidence": 0.9617,
+          "pixel_u": 1278.92,
+          "pixel_v": 3288.0,
+          "pixel_bbox": [
+            858.238037109375,
+            2859.2939453125,
+            1699.60205078125,
+            3716.7060546875
+          ]
+        }
+      ]
+    },
+    "diagnostics": {
+      "selected_count": 4,
+      "reliable_count": 4,
+      "part_constraint_applied": true,
+      "warnings": []
+    }
+  }
+]

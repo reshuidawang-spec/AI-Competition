@@ -1,0 +1,4 @@
+-r requirements.txt
+# Install CPU PyTorch first with scripts/bootstrap.py (official PyTorch index).
+ultralytics==8.4.173
+Pillow==12.3.0

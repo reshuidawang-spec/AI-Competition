@@ -1,0 +1,12 @@
+# 发动机缸体新工件占位配置：照片显示 4 个沿长轴排列的缸孔。
+# 不能从照片推定毫米尺寸。CAD/实测数据到位前，HoleAssigner 和
+# TaskGenerator 均不得为 ENGINE_001 生成真实测量任务。
+part_id: ENGINE_001
+box_dims_mm: [null, null, null]
+branch_threshold_diameter_mm: 65
+
+holes:
+  - {id: H01, center_o_mm: [null, null], diameter_mm: null}
+  - {id: H02, center_o_mm: [null, null], diameter_mm: null}
+  - {id: H03, center_o_mm: [null, null], diameter_mm: null}
+  - {id: H04, center_o_mm: [null, null], diameter_mm: null}

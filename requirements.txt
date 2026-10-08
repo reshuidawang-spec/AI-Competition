@@ -1,4 +1,4 @@
-numpy
-pyyaml
-# 相机适配器与仿真渲染需要；W1 纯数学模块（schemas/坐标链）不依赖
-opencv-python
+# Core simulation and camera adapters. Verified with Python 3.10.
+numpy==2.2.6
+PyYAML==6.0.3
+opencv-python==4.11.0.86

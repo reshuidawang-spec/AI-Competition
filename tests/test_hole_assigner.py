@@ -98,6 +98,12 @@ class TestAssign(unittest.TestCase):
         with self.assertRaises(HoleAssignmentError):
             self.assigner.assign(make_localization(pts))
 
+    def test_wrong_part_pattern_is_rejected(self):
+        loc = make_localization(true_world_points())
+        loc.part_id = "ENGINE_001"
+        with self.assertRaisesRegex(HoleAssignmentError, "工件 ID 不匹配"):
+            self.assigner.assign(loc)
+
     def test_residuals_attached(self):
         pts = true_world_points()
         out = self.assigner.assign(make_localization(pts))

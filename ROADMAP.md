@@ -26,8 +26,14 @@
 
 ## W2：视觉真实化
 
+- [x] 2026-10-08：提取 EngineBoreInspection 1.0.0 的正式 bore/part 权重与
+      28 组照片标注；双模型检测器接入 `DetectionResult`，23/28 组得到
+      4 个可靠像素圆心；其余 5 组拒绝自动任务（详见 `docs/engine_bore_acceptance.md`）
+- [x] 为 4 个直列缸孔建立独立 `ENGINE_001` 占位配置；工件 ID 不符时
+      `HoleAssigner` 拒绝旧 `BOX_001` 孔型
 - 真实相机采图；内参标定（棋盘格）；手眼标定 T_EA_C（AX=XB）
-- 标注箱体图像（box + hole mask）；训练 YOLO-Seg 替换几何占位
+- 获取 ENGINE_001 的 CAD 孔中心、孔径、顶面高度与测量基准，替换配置中的 null
+- 补充独立照片，复核 5 组失败样本；必要时补标和更新模型
 - hole_assigner：CAD 孔模式配准 → 箱体 (x,y,rz) + 孔编号 + 粗定位误差
 - 视觉精度实验（对照台面已知坐标）
 

@@ -1,0 +1,416 @@
+[
+  {
+    "image": "0293a798fcfe986f992ca4d83db0cfda68faeb48a9c8702f0b0bb84ae9e110c4.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      5.461946729270264,
+      3.921729769611259,
+      1.347714187333873,
+      2.0062289240111193
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "14a87586a9be579460da3c1a43ce6b17909b517070b23097d3fefb796754ca49.jpg",
+    "selected_count": 4,
+    "fitted_count": 3,
+    "reliable_count": 3,
+    "complete": false,
+    "center_errors_px": [],
+    "warnings": [
+      "孔 2 拟合质量不足：轮廓不够支持椭圆：支持比例 53%，角度覆盖 100%",
+      "有效拟合中心为 3 个，请人工复核。",
+      "已识别 4 个孔，拟合 3 个圆心，其中 3 个可用；完整任务需要 4 个可靠圆心。"
+    ],
+    "recovered_count": 0
+  },
+  {
+    "image": "2b89840def15008996ab3ebb7d307e3243683ebbdd61a54e82da750a91a6cf72.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      2.7772454483976046,
+      4.197725817165196,
+      3.619986599896067,
+      3.7029817799032707
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "2bc1b6d7581ee378856fd862d2f21cbb655786bff4f3b4a1ed70fab8bb494935.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      4.580633081233606,
+      3.7148944184069976,
+      11.355235878824995,
+      6.6429060715415424
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "3e45c3fa0f09ebdfb73859a63172ade1be9953ba17cf28fbfcc3878f0a3e6cb8.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      6.492575267352009,
+      6.452321849948817,
+      3.949018280250197,
+      6.50709464383369
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "3ea475ef3fde1538048f56c693ab186c7e4a0a6fc47cf66cb276869484a324cc.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      7.674465378236174,
+      6.484498855840023,
+      3.255964015392167,
+      5.238347746957152
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "45752d38d81180b780a5698136f6ef1edb38150b30272748994af3844c767b7d.jpg",
+    "selected_count": 4,
+    "fitted_count": 3,
+    "reliable_count": 3,
+    "complete": false,
+    "center_errors_px": [],
+    "warnings": [
+      "孔 2 拟合质量不足：轮廓不够支持椭圆：支持比例 51%，角度覆盖 100%",
+      "有效拟合中心为 3 个，请人工复核。",
+      "已识别 4 个孔，拟合 3 个圆心，其中 3 个可用；完整任务需要 4 个可靠圆心。"
+    ],
+    "recovered_count": 0
+  },
+  {
+    "image": "4b2af54ad2ae6878bbb034162636ddf7f9dd52d544ea4b778c7a9ac56610530d.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      4.764391331632237,
+      3.5102646628128946,
+      3.331888259003237,
+      4.2809589609974905
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "4bcd7b3b27584829f0dad78b5e8f479c1692dd43ce55b4c908aa1d3a333e4963.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      9.184395686301398,
+      7.209373812468049,
+      3.9786325476474325,
+      5.729370643305713
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "4fbb257c759603d36ed7ef25a1d0bbb98829a64857968c86d0d0359a421abe24.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      5.472761604825207,
+      3.6737121555483365,
+      6.003175049981012,
+      4.989325360388888
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "6030dba47dafa117c602ebebc5a98c20a50a02d45b9e136b92a561b8aee6f258.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      6.532462205391767,
+      4.233152829647675,
+      4.820616529300684,
+      1.76043686371526
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "6a8f5d4aef64e37e04cccf07671ad2b59c17f0eab9659578fa63ceb1cb99cd80.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      1.2959853075812742,
+      3.739015610455823,
+      2.7259926080947148,
+      4.354723915989155
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "6d42abf81f3135aa542f52c5b0bf1ec93fa016269243acd0a55a6a46bbea7f3f.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      9.085890203820396,
+      0.8004029085514927,
+      2.879856053496542,
+      0.49018077154852613
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "711a70e3b880d83eec35f1faeb42bd72691ebf2f21c33f84851e3476f67fa240.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      1.6833197821188506,
+      1.9398167380448668,
+      1.4167186882642886,
+      3.0818605047262526
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "754ef2242ccdf4790e041e0b69ded905c46ef16d8f87ae1dc7b16aa4e8721fec.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      3.2071650213465506,
+      1.646847442998106,
+      3.2273908365320656,
+      0.3666252659409881
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "75debbce5f835c0161c3a1ef3170354b5da85213d3bbbca08d5baa0bef160f73.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      4.328608802573335,
+      4.1217607537777345,
+      3.3780603184351365,
+      2.648466371002612
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "8042fe2cae9e11cfb1ce230cd95fb3356e54be60d7282fe8aa4b4f7e0af7db5e.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      2.337135730778801,
+      1.982268160593563,
+      4.129458727562248,
+      12.86848057310989
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "81857a86514490e389ea319dd22d7eb2874a2a80e4a35ce404e968e03add7309.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      5.135662129539373,
+      2.9795128738916277,
+      3.6234250291692343,
+      4.7763642913652165
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "85f9f06eb8e2e1e1896ee084d81b057e047d95c5795d2fcd5b69ba0c3b1e6eb7.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      9.081198918008605,
+      10.85374066867207,
+      10.401902973587028,
+      11.477858420659595
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "961bae2b04df5d0981bea33cec8b4fcdc1a1c312f10d51024e64a60a4d254227.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      0.8465484176586041,
+      5.357597664334548,
+      5.519015286558301,
+      8.58738831103607
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "a6aaaeb438c7c90a773a210ad33473b8bd6041e0635f7463f948d10789dc7d71.jpg",
+    "selected_count": 4,
+    "fitted_count": 3,
+    "reliable_count": 3,
+    "complete": false,
+    "center_errors_px": [],
+    "warnings": [
+      "孔 3 拟合质量不足：轮廓不够支持椭圆：支持比例 53%，角度覆盖 100%",
+      "有效拟合中心为 3 个，请人工复核。",
+      "已识别 4 个孔，拟合 3 个圆心，其中 3 个可用；完整任务需要 4 个可靠圆心。"
+    ],
+    "recovered_count": 0
+  },
+  {
+    "image": "bc20da602cbfd57f388a5e3f399f7469fa7a99087b15f2bc85ff60c37636fbf2.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      8.852992236798306,
+      3.210013729379391,
+      4.792167806089394,
+      1.9436570701505722
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "c38e5c354113312485be6eb3bb2fd5bcaad590f35f9b1bf33c201d8314ebedd1.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      5.152956294887668,
+      3.32828670735733,
+      1.2994940431926585,
+      7.643055478585373
+    ],
+    "warnings": [],
+    "recovered_count": 1
+  },
+  {
+    "image": "d32d76981de460e91b6d7aa8ef2bdb5b738ed3433d3b2499a1396cc1c08488ac.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      3.131722119487085,
+      2.147182360004033,
+      3.9814574907456324,
+      5.026820177641941
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "d718d35dd9167d5b727a87007ad8bb215f1305079e76cdcf86097f4e7bdddf17.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      2.32399499197454,
+      1.8221858453179758,
+      5.879205085177475,
+      2.5413531553660484
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  },
+  {
+    "image": "e4900e8b7dd41082f8c404e0ed95db3f5f0af8ea2e23ce010d977f99aa672efa.jpg",
+    "selected_count": 4,
+    "fitted_count": 3,
+    "reliable_count": 3,
+    "complete": false,
+    "center_errors_px": [],
+    "warnings": [
+      "孔 3 拟合质量不足：轮廓不够支持椭圆：支持比例 67%，角度覆盖 67%",
+      "有效拟合中心为 3 个，请人工复核。",
+      "已识别 4 个孔，拟合 3 个圆心，其中 3 个可用；完整任务需要 4 个可靠圆心。"
+    ],
+    "recovered_count": 0
+  },
+  {
+    "image": "e76fe6f57c714a09612c41593d1afaf283dd7a1bb81e69d0087c17888c1977fc.jpg",
+    "selected_count": 2,
+    "fitted_count": 2,
+    "reliable_count": 2,
+    "complete": false,
+    "center_errors_px": [],
+    "warnings": [
+      "有效拟合中心为 2 个，请人工复核。",
+      "已识别 2 个孔，拟合 2 个圆心，其中 2 个可用；完整任务需要 4 个可靠圆心。"
+    ],
+    "recovered_count": 1
+  },
+  {
+    "image": "f41cc8e3db5bde3e825a1ddc27f4180e456cd5a893f0a29e0e654e1643760c8c.jpg",
+    "selected_count": 4,
+    "fitted_count": 4,
+    "reliable_count": 4,
+    "complete": true,
+    "center_errors_px": [
+      7.738658300706092,
+      4.184074814185763,
+      3.2195743948221955,
+      4.5750437786006275
+    ],
+    "warnings": [],
+    "recovered_count": 0
+  }
+]
